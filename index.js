@@ -1,6 +1,6 @@
 var net = require('net');
-var servers = require(__dirname + "/servers.js");
 var Promise  = require('bluebird');
+var servers = require(__dirname + "/servers.js");
 
 function whois(url){
   return new Promise(function(resolve, reject) {
@@ -11,7 +11,7 @@ function whois(url){
     var socket = net.createConnection(43, servers[tld], function() {
       // TODO: Do some servers require the 'domain' string before the 
       //   requested domin string
-      //   example: socket.write("domain " + "startupjersey.com"+ "\r\n", "ascii");
+      //   example: socket.write("domain " + url + "\r\n", "ascii");
       socket.write(url +"\r");
     });
 
